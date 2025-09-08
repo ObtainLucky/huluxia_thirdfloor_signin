@@ -1,7 +1,7 @@
 name: huluxia_signin
 on:
   schedule:    # 定时触发
-    - cron: '0 16 * * *'  # 24点
+    - cron: '0 10 * * *'  # 24点
   workflow_dispatch:  # 支持手动触发
 jobs:
   build:
@@ -17,14 +17,13 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install -r ./requirements.txt
-      - name: '设置环境变量'
-        run: |
-          #echo "WECHAT_ROBOT_URL=${{ secrets.WECHAT_ROBOT_URL }}" >> $GITHUB_ENV
-          echo "ACCOUNTS=${{ secrets.ACCOUNTS }}" >> $GITHUB_ENV
       - name: '开始运行'
         id: signin-outputs
         env:
-          #WECHAT_ROBOT_URL: ${{ secrets.WECHAT_ROBOT_URL }}
+          # 不需要的推送形式可以直接注释，反之你需要取消注释            
+          NOTIFIER_TYPE: ${{ secrets.NOTIFIER_TYPE }} 
+          EMAIL_CONFIG: ${{ secrets.EMAIL_CONFIG }}
+          # WECHAT_ROBOT_URL: ${{ secrets.WECHAT_ROBOT_URL }}
           ACCOUNTS: ${{ secrets.ACCOUNTS }}
         run: |
           python ./main.py
