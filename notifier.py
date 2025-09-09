@@ -121,24 +121,3 @@ def get_notifier(method: str, config: dict) -> Notifier:
     else:
         raise ValueError(f"不支持的通知方式：{method}")
 
-# 示例代码，用于测试通知器
-if __name__ == "__main__":
-    # 环境变量配置
-    # 示例配置
-    notifier_type = os.getenv("NOTIFIER_TYPE", "email")  # 默认为 'none'
-    config = {
-        "webhook_url": os.getenv("WECHAT_ROBOT_URL"),  # 企业微信机器人 Webhook 地址
-        "smtp_server": "smtp.qq.com",  # SMTP 服务器地址
-        "port": 465,  # SMTP 端口号
-        "username": "your_email@qq.com",  # 邮箱用户名
-        "auth_code_or_password": "your_smtp_auth_code_or_password",  # 授权码或密码
-        "sender_email": "your_email@qq.com",  # 发送方邮箱
-        "recipient_email": "recipient_email@example.com"  # 接收方邮箱
-    }
-
-    try:
-        notifier = get_notifier(notifier_type, config)
-        notifier.send("这是一个测试通知！")
-        print("通知发送成功！")
-    except Exception as e:
-        print(f"通知发送失败：{e}")
