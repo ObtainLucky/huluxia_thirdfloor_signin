@@ -1,6 +1,6 @@
 # 葫芦侠三楼每日自动签到 🚀
 
-> **💯38个版块精准签到**
+> **💯动态获取版块并签到**
 > 
 > **🗂️多账号支持**
 >
@@ -110,4 +110,3 @@
 [![Star History Chart](https://api.star-history.com/svg?repos=BoltLv4215/huluxia_thirdfloor_signin&type=Date)](https://star-history.com/#BoltLv4215/huluxia_thirdfloor_signin&Date)<br/>
 
 **🚩By [BoltLv4215](https://github.com/BoltLv4215 "点个Star和Follow吧！")**<br/>
-
