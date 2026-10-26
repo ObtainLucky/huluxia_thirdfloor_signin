@@ -1,8 +1,13 @@
 name: huluxia_signin
 on:
   schedule:    # 定时触发
-    - cron: '0 23 * * *'  # 24点
+    - cron: '17 23 * * *'  # UTC 23:17 = 北京 07:17，避开整点高峰
   workflow_dispatch:  # 支持手动触发
+permissions:
+  contents: read
+concurrency:
+  group: huluxia_signin
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
